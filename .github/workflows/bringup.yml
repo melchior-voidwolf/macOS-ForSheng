@@ -183,6 +183,7 @@ jobs:
       - name: Preserve source build reuse after a failed dependency
         if: always() && steps.kernel-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
+        continue-on-error: true
         with:
           path: |
             out/reference-xnu/work/sheng/tree/.cache/
@@ -254,6 +255,7 @@ jobs:
       - name: Save pristine pinned source checkouts
         if: steps.native-sources.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
+        continue-on-error: true
         with:
           path: |
             UniXNU/
