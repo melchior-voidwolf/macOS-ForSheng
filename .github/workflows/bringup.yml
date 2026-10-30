@@ -76,7 +76,7 @@ jobs:
   macos:
     if: inputs.target == 'monitor' || inputs.target == 'apple' || inputs.target == 'apple26' || inputs.target == 'kext' || inputs.target == 'xnu'
     needs: check
-    runs-on: xcode-27
+    runs-on: macos-26
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -132,7 +132,7 @@ jobs:
   reference-xnu:
     if: inputs.target == 'reference-xnu' || inputs.target == 'sheng-xnu' || inputs.target == 'abi-bootstrap'
     needs: check
-    runs-on: xcode-27
+    runs-on: macos-26
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
@@ -226,7 +226,7 @@ jobs:
 
   macos26-xnu:
     if: inputs.target == 'macos26-xnu' || inputs.target == 'macos26-kernel'
-    runs-on: xcode-27
+    runs-on: macos-26
     timeout-minutes: 90
     env:
       NATIVE_ARCH: ${{ inputs.native_arch || 'arm64' }}
